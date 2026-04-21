@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>SEO Report Tool</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +12,23 @@
 <input id="url" placeholder="Enter Website URL">
 <button onclick="generate()">Generate Report</button>
 
-<pre id="output"></pre>
+<h2>Overview</h2>
+<div id="summary"></div>
+
+<h2>Traffic Chart</h2>
+<canvas id="trafficChart"></canvas>
+
+<h2>Keyword Ranking</h2>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>Position</th>
+      <th>Page</th>
+    </tr>
+  </thead>
+  <tbody id="keywordTable"></tbody>
+</table>
 
 <script src="script.js"></script>
 
