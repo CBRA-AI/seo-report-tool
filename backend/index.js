@@ -30,7 +30,7 @@ app.post("/report", async (req, res) => {
     }));
 
     // 📊 GA DATA
-    const analyticsRows = await getAnalyticsData("YOUR_PROPERTY_ID");
+    const analyticsRows = await getAnalyticsData("6226698015");
 
     const trafficData = analyticsRows.map(row => ({
       date: row.dimensionValues[0].value,
