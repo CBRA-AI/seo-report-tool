@@ -16,18 +16,28 @@ app.get("/", (req, res) => {
 app.post("/report", async (req, res) => {
   const { website } = req.body;
 
-  // Dummy data (next step la real API connect pannuvom)
-  const report = {
-    website,
-    users: 1200,
-    sessions: 1500,
-    keywords: [
-      { keyword: "bridal jewellery", position: 3, page: "/bridal" },
-      { keyword: "gold bangles", position: 5, page: "/bangles" }
-    ]
-  };
+  try {
+    const gscData = await getSearchConsoleData(website);
 
-  res.json(report);
+    const keywords = gscData.map(row => ({
+      keyword: row.keys[0],
+      page: row.keys[1],
+      clicks: row.clicks,
+      impressions: row.impressions,
+      position: row.position.toFixed(1),
+    }));
+
+    res.json({
+      website,
+      users: 1200,
+      sessions: 1500,
+      keywords
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error fetching GSC data");
+  }
 });
 
 app.listen(3000, () => {
