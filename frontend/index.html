@@ -3,32 +3,83 @@
 <head>
   <title>SEO Report Tool</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial;
+      background: #f5f7fb;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input {
+      padding: 10px;
+      width: 60%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background: #000;
+      color: white;
+    }
+  </style>
 </head>
+
 <body>
+
+<div class="container">
 
 <h1>SEO Report Tool 🚀</h1>
 
-<input id="url" placeholder="https://cbraindia.com/">
-<button onclick="generate()">Generate Report</button>
-
-<h2>Overview</h2>
-<div id="summary"></div>
+<input id="url" placeholder="Enter Website URL">
+<button onclick="generateReport()">Generate Report</button>
 
 <h2>Traffic Chart</h2>
 <canvas id="trafficChart"></canvas>
 
 <h2>Keyword Ranking</h2>
-<table border="1">
-  <thead>
-    <tr>
-      <th>Keyword</th>
-      <th>Position</th>
-      <th>Page</th>
-    </tr>
-  </thead>
-  <tbody id="keywordTable"></tbody>
+<table id="keywordTable">
+  <tr>
+    <th>Keyword</th>
+    <th>Position</th>
+    <th>Page</th>
+  </tr>
 </table>
+
+</div>
 
 <script src="script.js"></script>
 
