@@ -3,6 +3,7 @@
 <head>
   <title>SEO Report Tool</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
     body {
       font-family: Arial;
@@ -10,22 +11,23 @@
       padding: 20px;
     }
 
-    h1 {
-      text-align: center;
-    }
-
     .container {
       max-width: 900px;
       margin: auto;
       background: white;
-      padding: 20px;
+      padding: 25px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
     }
 
     input {
       padding: 10px;
-      width: 60%;
+      width: 65%;
       border-radius: 5px;
       border: 1px solid #ccc;
     }
@@ -37,22 +39,26 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      margin-left: 10px;
+    }
+
+    h2 {
+      margin-top: 30px;
     }
 
     table {
       width: 100%;
-      margin-top: 20px;
+      margin-top: 15px;
       border-collapse: collapse;
     }
 
     th, td {
       padding: 10px;
       border: 1px solid #ddd;
-      text-align: left;
     }
 
     th {
-      background: #000;
+      background: black;
       color: white;
     }
   </style>
@@ -62,22 +68,22 @@
 
 <div class="container">
 
-<h1>SEO Report Tool 🚀</h1>
+  <h1>SEO Report Tool 🚀</h1>
 
-<input id="url" placeholder="Enter Website URL">
-<button onclick="generateReport()">Generate Report</button>
+  <input id="url" placeholder="Enter Website URL (https://example.com/)">
+  <button onclick="generateReport()">Generate Report</button>
 
-<h2>Traffic Chart</h2>
-<canvas id="trafficChart"></canvas>
+  <h2>Traffic Chart</h2>
+  <canvas id="trafficChart"></canvas>
 
-<h2>Keyword Ranking</h2>
-<table id="keywordTable">
-  <tr>
-    <th>Keyword</th>
-    <th>Position</th>
-    <th>Page</th>
-  </tr>
-</table>
+  <h2>Keyword Ranking</h2>
+  <table id="keywordTable">
+    <tr>
+      <th>Keyword</th>
+      <th>Position</th>
+      <th>Page</th>
+    </tr>
+  </table>
 
 </div>
 
