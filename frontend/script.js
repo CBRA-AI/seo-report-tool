@@ -1,4 +1,4 @@
-async function generate() {
+async function generateReport() {
   const url = document.getElementById("url").value;
 
   const res = await fetch("https://seo-report-api.onrender.com/report", {
@@ -11,34 +11,37 @@ async function generate() {
 
   const data = await res.json();
 
-  // Summary
-  document.getElementById("summary").innerHTML = `
-    Users: ${data.users} <br>
-    Sessions: ${data.sessions}
+  // Keywords table
+  const table = document.getElementById("keywordTable");
+  table.innerHTML = `
+    <tr>
+      <th>Keyword</th>
+      <th>Position</th>
+      <th>Page</th>
+    </tr>
   `;
 
-  // Keywords table
-  let rows = "";
   data.keywords.forEach(k => {
-    rows += `<tr>
-      <td>${k.keyword}</td>
-      <td>${k.position}</td>
-      <td>${k.page}</td>
-    </tr>`;
+    table.innerHTML += `
+      <tr>
+        <td>${k.keyword}</td>
+        <td>${k.position}</td>
+        <td>${k.page}</td>
+      </tr>
+    `;
   });
 
-  document.getElementById("keywordTable").innerHTML = rows;
-
   // Chart
-  const ctx = document.getElementById('trafficChart');
+  const labels = data.traffic.map(t => t.date);
+  const users = data.traffic.map(t => t.users);
 
-  new Chart(ctx, {
-    type: 'bar',
+  new Chart(document.getElementById("trafficChart"), {
+    type: "line",
     data: {
-      labels: ['Users', 'Sessions'],
+      labels: labels,
       datasets: [{
-        label: 'Traffic',
-        data: [data.users, data.sessions]
+        label: "Users",
+        data: users
       }]
     }
   });
