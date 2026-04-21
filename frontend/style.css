@@ -1,20 +1,23 @@
 body {
   font-family: Arial;
-  padding: 40px;
+  padding: 30px;
 }
 
-input {
+h1 {
+  color: #333;
+}
+
+input, button {
   padding: 10px;
-  width: 250px;
+  margin: 5px;
 }
 
-button {
-  padding: 10px;
-  margin-left: 10px;
+table {
+  margin-top: 20px;
+  width: 100%;
 }
 
-pre {
-  background: #f4f4f4;
-  padding: 20px;
+canvas {
+  max-width: 500px;
   margin-top: 20px;
 }
