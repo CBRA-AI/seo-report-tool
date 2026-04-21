@@ -7,7 +7,7 @@ async function generateReport() {
   }
 
   try {
-    const res = await fetch("https://seo-report-api.onrender.com/report", {
+    const res = await fetch("fetch("https://seo-report-api-caii.onrender.com/report")", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
