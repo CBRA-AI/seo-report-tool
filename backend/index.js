@@ -1,3 +1,4 @@
+const { getSearchConsoleData } = require("./searchConsole");
 const express = require("express");
 const cors = require("cors");
 
